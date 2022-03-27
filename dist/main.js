@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("aperiam minima iusto nam minus illum, perspiciatis tempora nisi quos!"),console.log("webpack learning")})();
