@@ -25,6 +25,15 @@ module.exports = {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+          test: /\.js$/,
+          exclude: /mode_modules/,
+          use: {
+              loader: 'babel-loader',
+              presets: ['@babel/preset-env'],
+              
+          }
+      }
     ],
   },
   plugins: [
