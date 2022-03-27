@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
+    assetModuleFilename: "[name][ext]",
   },
   devServer: {
     static: {
@@ -26,14 +27,19 @@ module.exports = {
         use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
-          test: /\.js$/,
-          exclude: /mode_modules/,
-          use: {
-              loader: 'babel-loader',
-              presets: ['@babel/preset-env'],
-              
-          }
-      }
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   plugins: [
